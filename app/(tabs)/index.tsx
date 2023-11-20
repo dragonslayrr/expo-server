@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   subtitle: {
-    // color: 'red',
+    color: 'red',
     fontSize: 20,
   }
 });
