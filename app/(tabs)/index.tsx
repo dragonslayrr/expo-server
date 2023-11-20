@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   substitle: {
-    color: 'red',
+    color: '#f00',
   }
 });
