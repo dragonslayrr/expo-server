@@ -7,9 +7,8 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Sol</Text>
-      <Text>Official Server Test</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <Text style={styles.subtitle}>Official Server Test</Text>
     </View>
   );
 }
@@ -29,4 +28,7 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+  substitle: {
+    color: 'red',
+  }
 });
