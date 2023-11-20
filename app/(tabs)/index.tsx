@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
   },
   separator: {
@@ -30,5 +30,6 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     color: 'red',
+    fontSize: 20,
   }
 });
