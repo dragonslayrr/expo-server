@@ -8,7 +8,6 @@ export default function Home() {
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Sol</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Text lightColor="blue" darkColor="green" style={styles.subtitle}>Bob Ross aka Kyle</Text>
     </View>
   );
 }
@@ -28,8 +27,4 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
-  subtitle: {
-    color: 'red',
-    fontSize: 20,
-  }
 });
