@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, Button, Pressable, KeyboardAvoidingView } from "react-native";
+import { StyleSheet, TextInput, Button, Pressable, KeyboardAvoidingView, Platform } from "react-native";
 import { useRef, useEffect, useState } from "react";
 // import bcrypt from "bcrypt";
 import EditScreenInfo from "../../components/EditScreenInfo";
@@ -30,7 +30,7 @@ export default function Login() {
     connectToSQLServer();
   }, []);
   return (
-    <KeyboardAvoidingView flex={1}>
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.keyboard}>
       <View style={styles.container}>
         <Text style={styles.title}>Login / Signup</Text>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -109,6 +109,9 @@ const styles = StyleSheet.create({
   loginText: {
     fontSize: 20,
   },
+  keyboard: {
+    flex: 1,
+  }
 });
 
 // VIEW = DIV SO SPAM VIEW (VIEW FUNNY)
