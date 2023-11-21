@@ -8,7 +8,7 @@ export default function Stats() {
     <View style={styles.container}>
       <Text style={styles.title}>Here are your stats</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Text>Hi Donovan</Text>
+      <Text>Hi Aiden</Text>
     </View>
   );
 }
