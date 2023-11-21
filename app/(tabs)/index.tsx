@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
-    fontWeight: 'bolder',
+    fontWeight: 'bold',
   },
   separator: {
     marginVertical: 30,
