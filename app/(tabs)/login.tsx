@@ -25,7 +25,7 @@ export default function Login() {
   }
 
   function handleSignup() {
-    console.log(PasswordRef.current);
+    console.log(PasswordRef.current.value);
   }
 
   return (
