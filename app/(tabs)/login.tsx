@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, Button, Pressable } from "react-native";
+import { StyleSheet, TextInput, Button, Pressable, SafeAreaView } from "react-native";
 import { useRef, useEffect, useState } from "react";
 // import bcrypt from "bcrypt";
 import EditScreenInfo from "../../components/EditScreenInfo";
@@ -30,26 +30,28 @@ export default function Login() {
     connectToSQLServer();
   }, []);
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login / Signup</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <View style={styles.loginForm}>
-        <Text style={styles.loginText}>Email: </Text>
-        <TextInput id="emailBox" ref={EmailRef} style={styles.loginFormContent} placeholder="Email" />
-        <Text id="passwordBox" style={styles.loginText}>
-          Password:{" "}
-        </Text>
-        <TextInput ref={PasswordRef} style={styles.loginFormContent} placeholder="Password" secureTextEntry />
-        <View style={styles.loginButtonView}>
-          <Pressable onPress={handleLogin} style={styles.loginButtons}>
-            <Text>  Login  </Text>
-          </Pressable>
-          <Pressable onPress={handleSignup} style={styles.loginButtons}>
-            <Text>  Signup  </Text>
-          </Pressable>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <Text style={styles.title}>Login / Signup</Text>
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+        <View style={styles.loginForm}>
+          <Text style={styles.loginText}>Email: </Text>
+          <TextInput id="emailBox" ref={EmailRef} style={styles.loginFormContent} placeholder="Email" />
+          <Text id="passwordBox" style={styles.loginText}>
+            Password:{" "}
+          </Text>
+          <TextInput ref={PasswordRef} style={styles.loginFormContent} placeholder="Password" secureTextEntry />
+          <View style={styles.loginButtonView}>
+            <Pressable onPress={handleLogin} style={styles.loginButtons}>
+              <Text>  Login  </Text>
+            </Pressable>
+            <Pressable onPress={handleSignup} style={styles.loginButtons}>
+              <Text>  Signup  </Text>
+            </Pressable>
+          </View>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
