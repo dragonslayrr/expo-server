@@ -1,6 +1,6 @@
 import { StyleSheet, TextInput, Button, TouchableOpacity } from "react-native";
 import { useRef } from "react";
-import bcrypt from "bcrypt";
+// import bcrypt from "bcrypt";
 import EditScreenInfo from "../../components/EditScreenInfo";
 import { Text, View } from "../../components/Themed";
 
@@ -48,7 +48,8 @@ async function parseHash(hashedPassword: string, salt: string, password: string)
 }
 
 function handleLogin() {
-  hashPassword();
+//   hashPassword();
+    console.log(email)
 }
 
 function handleSignup() {
