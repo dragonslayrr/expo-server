@@ -30,7 +30,7 @@ export default function Login() {
     connectToSQLServer();
   }, []);
   return (
-    <KeyboardAvoidingView>
+    <KeyboardAvoidingView flex={1}>
       <View style={styles.container}>
         <Text style={styles.title}>Login / Signup</Text>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
