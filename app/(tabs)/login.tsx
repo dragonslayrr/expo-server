@@ -1,20 +1,27 @@
 import { StyleSheet, TextInput, Button, TouchableOpacity } from "react-native";
+import { useRef } from "react";
 import bcrypt from "bcrypt";
 import EditScreenInfo from "../../components/EditScreenInfo";
 import { Text, View } from "../../components/Themed";
 
 export default function Login() {
+  PasswordRef = useRef();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login / Signup</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <View style={styles.loginForm}>
         <Text style={styles.loginText}>Email: </Text>
-        <TextInput id="emailBox" onChangeText={(text) => (email = text)} style={styles.loginFormContent} placeholder="Email" />
+        <TextInput
+          id="emailBox"
+          onChangeText={(text) => (email = text)}
+          style={styles.loginFormContent}
+          placeholder="Email"
+        />
         <Text id="passwordBox" style={styles.loginText}>
           Password:{" "}
         </Text>
-        <TextInput style={styles.loginFormContent} placeholder="Password" secureTextEntry />
+        <TextInput ref={PasswordRef} style={styles.loginFormContent} placeholder="Password" secureTextEntry />
         <View style={styles.loginButtonView}>
           <TouchableOpacity onPress={handleLogin} style={styles.loginButtons}>
             <Text>  Login  </Text>
@@ -30,16 +37,22 @@ export default function Login() {
 
 let email: string;
 
-function hashPassword(password: string) {}
+async function hashPassword(password: string): { hashedPassword: string; salt: string } {
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
+  return { hashedPassword, salt };
+}
 
-function parseHash() {}
+async function parseHash(hashedPassword: string, salt: string, password: string): boolean {
+  return hashedPassword == (await bcrypt.hash(password, salt));
+}
 
 function handleLogin() {
-  console.log(`Logged in as ${email}`);
+  hashPassword();
 }
 
 function handleSignup() {
-  console.log("Signed Up");
+  console.log(PasswordRef.current);
 }
 
 const styles = StyleSheet.create({
