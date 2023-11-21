@@ -1,6 +1,6 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
-import { Pressable, useColorScheme, KeyboardAvoidingView ,Platform} from "react-native";
+import { Pressable, useColorScheme, KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
 
 import Colors from "../../constants/Colors";
 
@@ -64,5 +64,5 @@ export default function TabLayout() {
 const main = StyleSheet.create({
   keyboard: {
     flex: 1,
-  }
+  },
 });
