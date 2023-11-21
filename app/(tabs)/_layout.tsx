@@ -15,7 +15,7 @@ export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} >
+    <KeyboardAvoidingView>
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
