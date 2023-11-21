@@ -5,7 +5,7 @@ import EditScreenInfo from "../../components/EditScreenInfo";
 import { Text, View } from "../../components/Themed";
 
 export default function Login() {
-  PasswordRef = useRef();
+  let PasswordRef = useRef();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login / Signup</Text>
