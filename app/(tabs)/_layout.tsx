@@ -60,3 +60,9 @@ export default function TabLayout() {
     </KeyboardAvoidingView>
   );
 }
+
+const main = StyleSheet.create({
+  keyboard: {
+    flex: 1,
+  }
+});
