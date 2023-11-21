@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, Button, Pressable, SafeAreaView } from "react-native";
+import { StyleSheet, TextInput, Button, Pressable, KeyboardAvoidingView } from "react-native";
 import { useRef, useEffect, useState } from "react";
 // import bcrypt from "bcrypt";
 import EditScreenInfo from "../../components/EditScreenInfo";
@@ -30,7 +30,7 @@ export default function Login() {
     connectToSQLServer();
   }, []);
   return (
-    <SafeAreaView flex={1}>
+    <KeyboardAvoidingView>
       <View style={styles.container}>
         <Text style={styles.title}>Login / Signup</Text>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
@@ -51,7 +51,7 @@ export default function Login() {
           </View>
         </View>
       </View>
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 }
 
