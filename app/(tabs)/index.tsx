@@ -8,7 +8,8 @@ export default function Home() {
     <View style={styles.container}>
       <Text style={styles.title} darkColor="white" lightColor="black">Welcome to Sol</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      
+      <Text style={styles.help}>I don't know how to make a homepage for an app</Text>
+      <Text style={styles.help}>Any ideas</Text>
     </View>
   );
 }
@@ -28,4 +29,8 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+  help: {
+    fontSize: 25,
+    color: "green",
+  }
 });
