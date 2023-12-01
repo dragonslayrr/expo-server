@@ -5,21 +5,21 @@ import EditScreenInfo from "../../components/EditScreenInfo";
 import { Text, View } from "../../components/Themed";
 
 export default function Login() {
-  const PasswordRef = useRef();
-  const EmailRef = useRef();
+  const PasswordRef = useRef(null);
+  const EmailRef = useRef(null);
 
-  async function hashPassword(password: string): { hashedPassword: string; salt: string } {
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
-    return { hashedPassword, salt };
-  }
+  // async function hashPassword(password: string): { hashedPassword: string; salt: string } {
+  //   const salt = await bcrypt.genSalt(10);
+  //   const hashedPassword = await bcrypt.hash(password, salt);
+  //   return { hashedPassword, salt };
+  // }
 
-  async function parseHash(hashedPassword: string, salt: string, password: string): boolean {
-    return hashedPassword == (await bcrypt.hash(password, salt));
-  }
+  // async function parseHash(hashedPassword: string, salt: string, password: string): promise<boolean> {
+  //   return hashedPassword == (await bcrypt.hash(password, salt));
+  // }
   function handleLogin() {
     //   hashPassword();
-    console.log(email);
+    console.log(EmailRef.current.value);
   }
 
   function handleSignup() {
