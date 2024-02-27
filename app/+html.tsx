@@ -8,6 +8,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script src="http://localhost:8097"></script>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
