@@ -4,11 +4,10 @@ import { Link, Tabs } from "expo-router";
 import { useColorScheme, StyleSheet, Text, Image } from "react-native";
 import { LoginInfo } from '../ExternalStorage'
 import Colors from "../../constants/Colors";
-import { useEffect, useSyncExternalStore, useState } from "react";
+import React, { useEffect, useSyncExternalStore, useState } from "react";
 
 const BARSTYLES = {
     backgroundColor: "#0F151A",
-    fontFamily: "HindRegular"
 }
 
 /**

@@ -3,7 +3,6 @@ import React, { useRef, useEffect, useState, useSyncExternalStore } from "react"
 import { Text, View } from "../../components/Themed";
 import { CONSTANTS, JSHash } from "react-native-hash";
 import { LoginInfo } from '../ExternalStorage'
-
 interface DataInterFace {
     id: number;
     email: string;

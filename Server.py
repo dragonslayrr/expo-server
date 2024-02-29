@@ -1,7 +1,8 @@
 import sqlite3
-from flask import Flask, request,jsonify
+from flask import Flask, request,jsonify, render_template
 import json
 from flask_cors import CORS
+from datetime import date
 
 con = sqlite3.connect("db/database.db", check_same_thread=False)
 
@@ -32,9 +33,10 @@ def removeFromDB(table, id):
 def addToDB(table: str, headers: str, data: str):
     cur.execute(f"INSERT INTO {table} ({headers}) VALUES ({data})")
     con.commit()
-    res = cur.execute(f"SELECT id FROM {table} WHERE email={data.split(', ')[0]} AND password={data.split(', ')[1]}")
-    id = res.fetchone()[0]
-    return id
+    if table == "logins": 
+        res = cur.execute(f"SELECT id FROM {table} WHERE email={data.split(', ')[0]} AND password={data.split(', ')[1]}")
+        id = res.fetchone()[0]
+        return id
 
 def getStatistics(uid: str, date: str):
     res = cur.execute(f"SELECT * FROM stats WHERE uid = '{uid}' AND date = '{date}'")
@@ -51,7 +53,7 @@ def getStatistics(uid: str, date: str):
 
 # Connect to react-native
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="./templates")
 CORS(app)
 
 @app.route("/login/get", methods=["POST"])
@@ -89,11 +91,23 @@ def getStats():
     date = jsonData["date"]
     return getStatistics(uid, date)
 
+@app.route("/stats")
+def render():
+    return render_template("index.html")
+
+@app.route("/stats/add", methods=["POST"])
+def addStat():
+    if date.today().strftime("%m/%d/%Y")[0] == "0":
+        cdate = date.today().strftime("%m/%d/%Y")[1:]
+    else: cdate = date.today().strftime("%d/%m/%Y")
+    addToDB("stats", "stat, val, date, uid", f"'{request.form.get('statType')}', '{request.form.get('value')}', '{cdate}', '{request.form.get('id')}'")
+    return render_template("index.html"), 200
+
 if(__name__=="__main__"):
     from waitress import serve
+    # app.run(debug=True)
     print("Server listening on port 5000")
     serve(app, host="0.0.0.0", port=5000)
-    # app.run(debug=True)
 
 # \(0-0)/ #
 # Bruh #

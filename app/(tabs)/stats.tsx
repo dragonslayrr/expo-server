@@ -1,11 +1,11 @@
 import { Pressable, StyleSheet } from "react-native";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import React, { useEffect, useState, useSyncExternalStore } from "react";
 import EditScreenInfo from "../../components/EditScreenInfo";
 import { Text, View } from "../../components/Themed";
 import { LoginInfo } from "../ExternalStorage";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
-import DateTimePicker from '@react-native-community/datetimepicker';
+import RNDateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 
 
 let date = new Date();
@@ -114,7 +114,10 @@ export default function Stats() {
             <View style={styles.container}>
                 {showSelector && (
                     <>
-                        <RNDateTimePicker mode="date" value={new Date()} onChange={}/> 
+                        {console.log(new Date().getDate())}
+                        <RNDateTimePicker mode="date" value={new Date()} onChange={(event: DateTimePickerEvent, date?: Date) => {
+                            console.log(date)
+                        }}/>
                     </>
                 )}
                 <View style={styles.headerContainer}>

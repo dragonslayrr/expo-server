@@ -2,6 +2,7 @@ import { StyleSheet, Image } from "react-native";
 import { useFonts } from "expo-font";
 import EditScreenInfo from "../../components/EditScreenInfo";
 import { Text, View } from "../../components/Themed";
+import React from "react";
 
 export default function Home() {
     useFonts({
